@@ -7,8 +7,7 @@ USER root
 
 RUN curl -O --silent --location https://dl.google.com/go/go${lang_version}.linux-amd64.tar.gz && \
     tar -xvf go${lang_version}.linux-amd64.tar.gz -C /usr/local && \
-    rm -f go${lang_version}.linux-amd64.tar.gz && \
-    go --version
+    rm -f go${lang_version}.linux-amd64.tar.gz
 
 USER jenkins
 
