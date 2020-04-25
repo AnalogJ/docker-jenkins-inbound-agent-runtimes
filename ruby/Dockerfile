@@ -5,8 +5,10 @@ ARG lang_version
 
 USER root
 RUN curl -O --silent --location https://cache.ruby-lang.org/pub/ruby/2.7/ruby-${lang_version}.tar.gz  && \
-    tar -zxf ruby-${lang_version}.tar.gz -C /usr/local && \
+    tar -zxf ruby-${lang_version}.tar.gz -C /usr/local/ruby --strip 1 && \
     rm -f ruby-${lang_version}.tar.gz && \
     ruby --version
 
 USER jenkins
+ENV PATH="$PATH:/usr/local/ruby/bin"
+RUN ruby --version

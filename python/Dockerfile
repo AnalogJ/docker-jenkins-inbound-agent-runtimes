@@ -11,3 +11,4 @@ RUN apt-get update \
     python${lang_version}
 
 USER jenkins
+RUN python --version
