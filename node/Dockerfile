@@ -10,3 +10,4 @@ RUN curl -O --silent --location https://nodejs.org/dist/v${lang_version}/node-v$
 
 USER jenkins
 ENV PATH="$PATH:/usr/local/nodejs/bin"
+RUN node --version && npm --version
