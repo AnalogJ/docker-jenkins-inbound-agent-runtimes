@@ -1,0 +1,32 @@
+#!/bin/bash
+
+###############################################################################
+# WARNING
+# This is a symlinked file. The original lives at hooks/build in this repository
+###############################################################################
+
+HOOKS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# original docker build command
+echo "overwriting docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME ."
+
+cat "../agent_versions.txt" | while read agent_version_line
+do
+
+    IFS=\  read base_image agent_tag <<<"$agent_version_line"
+
+    cat "$HOOKS_DIR/versions.txt" | while read language_line
+    do
+        # split the language line into its two components, the version string to be used in the tag, and the actual docker base image.
+        IFS=\  read lang_tag lang_version <<<"$language_line"
+
+        IMAGE_TAG="${DOCKER_REPO}:${agent_tag}"
+
+        if [ "${lang_tag}" != "-" ]; then
+            IMAGE_TAG="${IMAGE_TAG}-${lang_tag}"
+        fi
+
+        echo "docker build -f Dockerfile --build-arg base_image=${base_image} --build-arg lang_version=${lang_version} -t ${IMAGE_TAG} ../"
+        docker build -f Dockerfile --build-arg base_image=${base_image} --build-arg lang_version=${lang_version} -t ${IMAGE_TAG} ../
+    done
+done
+
