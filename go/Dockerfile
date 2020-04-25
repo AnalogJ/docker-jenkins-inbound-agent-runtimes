@@ -6,7 +6,7 @@ ARG lang_version
 USER root
 
 RUN curl -O --silent --location https://dl.google.com/go/go${lang_version}.linux-amd64.tar.gz && \
-    tar -zxf go${lang_version}.linux-amd64.tar.gz -C /usr/local && \
+    tar -xvf go${lang_version}.linux-amd64.tar.gz -C /usr/local && \
     rm -f go${lang_version}.linux-amd64.tar.gz && \
     go --version
 
