@@ -16,4 +16,4 @@ ENV GOROOT="/usr/local/go" \
     GOPATH="/home/jenkins/go"
 ENV PATH="$GOROOT/bin:$GOPATH/bin:$PATH:/usr/local/go/bin"
 RUN mkdir /home/jenkins/go && \
-    go --version
+    go version
