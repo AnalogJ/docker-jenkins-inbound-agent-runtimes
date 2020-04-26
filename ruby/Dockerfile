@@ -5,6 +5,7 @@ ARG lang_version
 
 USER root
 RUN curl -O --silent --location https://cache.ruby-lang.org/pub/ruby/2.7/ruby-${lang_version}.tar.gz  && \
+    mkdir -p /usr/local/ruby && \
     tar -zxf ruby-${lang_version}.tar.gz -C /usr/local/ruby --strip 1 && \
     rm -f ruby-${lang_version}.tar.gz && \
     ruby --version

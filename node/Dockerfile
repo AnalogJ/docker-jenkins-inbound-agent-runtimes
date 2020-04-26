@@ -5,6 +5,7 @@ ARG lang_version
 
 USER root
 RUN curl -O --silent --location https://nodejs.org/dist/v${lang_version}/node-v${lang_version}-linux-x64.tar.xz  && \
+    mkdir -p /usr/local/nodejs && \
     tar -xJvf node-v${lang_version}-linux-x64.tar.xz -C /usr/local/nodejs --strip 1  && \
     rm -f node-v${lang_version}-linux-x64.tar.xz
 
