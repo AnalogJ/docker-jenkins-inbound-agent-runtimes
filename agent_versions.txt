@@ -1,4 +1,6 @@
+jenkins/inbound-agent:latest latest
 jenkins/inbound-agent:latest latest-java8
 jenkins/inbound-agent:latest-jdk11 latest-java11
+jenkins/inbound-agent:4.3-4 4.3
 jenkins/inbound-agent:4.3-4 4.3-java8
 jenkins/inbound-agent:4.3-4-jdk11 4.3-java11
