@@ -4,10 +4,7 @@ MAINTAINER Jason Kulatunga <jason@thesparktree.com>
 ARG lang_version
 
 USER root
-RUN curl -O --silent --location https://rubies.travis-ci.org/ubuntu/16.04/ppc64le/ruby-${lang_version}.tar.bz2 && \
-    mkdir -p /usr/local/ruby && \
-    tar -xvf ruby-${lang_version}.tar.bz2 -C /usr/local/ruby --strip 1 && \
-    rm -f ruby-${lang_version}.tar.bz2
+RUN apt-get update && apt-get install --no-install-recommends --yes ruby-full
 
 USER jenkins
 ENV PATH="$PATH:/usr/local/ruby/bin"
