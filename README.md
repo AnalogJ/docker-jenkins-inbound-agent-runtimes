@@ -6,9 +6,7 @@ All images are based on the official Jenkins [docker-inbound-agent image](https:
 but are customized to include specific language runtimes so you don't need to make any changes.
 
 These images are primarily for use with the Kubernetes Jenkins plugin, to dynamically spin up slave containers.
-See my blog post here:
-
-<TODO: insert link to blog post here>
+See my blog post here: https://blog.thesparktree.com/you-dont-know-jenkins-part-4
 
 
 # Tagging
